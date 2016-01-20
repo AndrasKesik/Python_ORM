@@ -60,7 +60,7 @@ def row_normalizer(data_row):
         elif isinstance(i, int) or isinstance(i, float) or isinstance(i, decimal.Decimal):
             normalized.append(str(i))
         elif isinstance(i, bytes):
-            normalized.append("NULL")  # i.decode(utf-8)
+            normalized.append("NULL")        # i.decode(utf-8)  // PICTURE DECODING DOESN'T WORK YET
         else:
             normalized.append(i)
     return normalized
@@ -78,20 +78,19 @@ def to_obj(ntable,osztaly):
         obj_list.append(osztaly.parse2(i))
     return obj_list
 
-def to_db():
-    lista = []
+def from_csv_to_db(csv_file,osztaly):
+    lista = csv_reader(csv_file, osztaly)
+    for i in lista:
+        i.persist()
 
 
-employees_list = csv_reader(EMPLOYEES_CSV, Employees)
-customers_list = csv_reader(CUSTOMERS_CSV, Customers)
-orders_list = csv_reader(ORDERS_CSV, Orders)
-orderdetails_list = csv_reader(ORDERDETAILS_CSV, Orderdetails)
-
-employees_list[0].persist()
-customers_list[0].persist()
-orders_list[0].persist()
-orderdetails_list[0].persist()
-
+# CSV TO DB WORKING WITH CORRECT CSV DATA
+"""
+from_csv_to_db(EMPLOYEES_CSV, Employees)
+from_csv_to_db(CUSTOMERS_CSV, Customers)
+from_csv_to_db(ORDERS_CSV, Orders)
+from_csv_to_db(ORDERDETAILS_CSV, Orderdetails)
+"""
 
 run = 1
 while(run):
