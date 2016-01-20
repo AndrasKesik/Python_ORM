@@ -22,27 +22,10 @@ class Orders():
     @staticmethod
     def parse(csv_row):
         a = Orders()
-        elemek = csv_row.split(";")
-        a.OrderID = elemek[0]
-        a.CustomerID = elemek[1]
-        a.EmployeeID = elemek[2]
-        a.ContactTitle = elemek[3]
-        a.OrderDate = elemek[4]
-        a.RequiredDate = elemek[5]
-        a.ShippedDate = elemek[6]
-        a.ShipVia = elemek[7]
-        a.Freight = elemek[8]
-        a.ShipName = elemek[9]
-        a.ShipAddress = elemek[10]
-        a.ShipCity = elemek[11]
-        a.ShipRegion = elemek[12]
-        a.ShipPostalCode = elemek[13]
-        a.ShipCountry = elemek[14]
-        return a
-
-    @staticmethod
-    def parse2(elemek):
-        a = Orders()
+        if isinstance(csv_row,str):
+            elemek = csv_row.split(";")
+        else:
+            elemek = csv_row
         a.OrderID = elemek[0]
         a.CustomerID = elemek[1]
         a.EmployeeID = elemek[2]

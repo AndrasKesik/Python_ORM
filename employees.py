@@ -28,32 +28,10 @@ class Employees():
     @staticmethod
     def parse(csv_row):
         a = Employees()
-        elemek = csv_row.split(";")
-        a.EmployeeID = elemek[0]
-        a.LastName = elemek[1]
-        a.FirstName = elemek[2]
-        a.Title = elemek[3]
-        a.TitleOfCourtesy = elemek[4]
-        a.BirthDate = elemek[5]
-        a.HireDate = elemek[6]
-        a.Address = elemek[7]
-        a.City = elemek[8]
-        a.Region = elemek[9]
-        a.PostalCode = elemek[10]
-        a.Country = elemek[11]
-        a.HomePhone = elemek[12]
-        a.Extension = elemek[13]
-        a.Photo = elemek[14]
-        a.Notes = elemek[15]
-        a.ReportsTo = elemek[16]
-        a.PhotoPath = elemek[17]
-        a.Salary = elemek[18]
-
-        return a
-
-    @staticmethod
-    def parse2(elemek):
-        a = Employees()
+        if isinstance(csv_row,str):
+            elemek = csv_row.split(";")
+        else:
+            elemek = csv_row
         a.EmployeeID = elemek[0]
         a.LastName = elemek[1]
         a.FirstName = elemek[2]

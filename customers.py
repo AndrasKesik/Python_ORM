@@ -19,42 +19,23 @@ class Customers():
 
     @staticmethod
     def parse(csv_row):
-        try:
-            a = Customers()
+        a = Customers()
+        if isinstance(csv_row,str):
             elemek = csv_row.split(";")
-            a.CustomerID = elemek[0]
-            a.CompanyName = elemek[1]
-            a.ContactName = elemek[2]
-            a.ContactTitle = elemek[3]
-            a.Address = elemek[4]
-            a.City = elemek[5]
-            a.Region = elemek[6]
-            a.PostalCode = elemek[7]
-            a.Country = elemek[8]
-            a.Phone = elemek[9]
-            a.Fax = elemek[10]
-            return a
-        except:
-            print("Parsing Error")
-
-    @staticmethod
-    def parse2(elemek):
-        try:
-            a = Customers()
-            a.CustomerID = elemek[0]
-            a.CompanyName = elemek[1]
-            a.ContactName = elemek[2]
-            a.ContactTitle = elemek[3]
-            a.Address = elemek[4]
-            a.City = elemek[5]
-            a.Region = elemek[6]
-            a.PostalCode = elemek[7]
-            a.Country = elemek[8]
-            a.Phone = elemek[9]
-            a.Fax = elemek[10]
-            return a
-        except:
-            print("Parsing Error")
+        else:
+            elemek = csv_row
+        a.CustomerID = elemek[0]
+        a.CompanyName = elemek[1]
+        a.ContactName = elemek[2]
+        a.ContactTitle = elemek[3]
+        a.Address = elemek[4]
+        a.City = elemek[5]
+        a.Region = elemek[6]
+        a.PostalCode = elemek[7]
+        a.Country = elemek[8]
+        a.Phone = elemek[9]
+        a.Fax = elemek[10]
+        return a
 
     def persist(self):
         try:

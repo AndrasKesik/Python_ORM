@@ -78,7 +78,7 @@ def table_normalizer(tabla):
 def to_obj(ntable,osztaly):
     obj_list = []
     for i in ntable:
-        obj_list.append(osztaly.parse2(i))
+        obj_list.append(osztaly.parse(i))
     return obj_list
 
 def from_csv_to_db(csv_file,osztaly):

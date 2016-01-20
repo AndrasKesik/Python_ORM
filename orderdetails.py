@@ -13,17 +13,10 @@ class Orderdetails():
     @staticmethod
     def parse(csv_row):
         a = Orderdetails()
-        elemek = csv_row.split(";")
-        a.OrderID = elemek[0]
-        a.ProductID = elemek[1]
-        a.UnitPrice = elemek[2]
-        a.Quantity = elemek[3]
-        a.Discount = elemek[4]
-        return a
-
-    @staticmethod
-    def parse2(elemek):
-        a = Orderdetails()
+        if isinstance(csv_row,str):
+            elemek = csv_row.split(";")
+        else:
+            elemek = csv_row
         a.OrderID = elemek[0]
         a.ProductID = elemek[1]
         a.UnitPrice = elemek[2]
