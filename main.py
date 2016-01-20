@@ -61,6 +61,9 @@ def row_normalizer(data_row):
             normalized.append(str(i))
         elif isinstance(i, bytes):
             normalized.append("NULL")        # i.decode(utf-8)  // PICTURE DECODING DOESN'T WORK YET
+        elif isinstance(i, str) and "\n" in i:
+            i = i.replace("\n"," ")
+            normalized.append(i)
         else:
             normalized.append(i)
     return normalized
